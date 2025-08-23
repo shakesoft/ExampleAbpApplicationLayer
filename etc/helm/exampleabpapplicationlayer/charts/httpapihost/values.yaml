@@ -1,0 +1,4 @@
+image:
+  repository: "exampleabpapplicationlayer/httpapihost"
+  tag: "latest"
+  pullPolicy: IfNotPresent

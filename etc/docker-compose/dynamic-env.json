@@ -1,0 +1,25 @@
+{
+  "production": true,
+  "application": {
+    "baseUrl":"http://localhost:4200",
+    "name": "ExampleAbpApplicationLayer",
+    "logoUrl": ""
+  },
+  "oAuthConfig": {
+    "issuer": "https://localhost:44302/",
+    "redirectUri": "http://localhost:4200",
+    "clientId": "ExampleAbpApplicationLayer_App",
+    "responseType": "code",
+    "scope": "offline_access openid profile email phone ExampleAbpApplicationLayer"
+  },
+  "apis": {
+    "default": {
+      "url": "https://localhost:44302",
+      "rootNamespace": "ExampleAbpApplicationLayer"
+    },
+    "AbpAccountPublic": {
+      "url": "https://localhost:44302",
+      "rootNamespace": "AbpAccountPublic"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+image:
+  repository: "exampleabpapplicationlayer/angular"
+  tag: "latest"
+  pullPolicy: IfNotPresent

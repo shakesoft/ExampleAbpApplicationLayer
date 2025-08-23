@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
+data:
+  dynamic-env.json: |-
+    {
+        "production": "true",
+        "application": {
+            "baseUrl": "{{ include "exampleabpapplicationlayer.hosts.angular" . }}",
+            "name": "ExampleAbpApplicationLayer",
+            "logoUrl": ""
+        },
+        "oAuthConfig": {
+            "issuer": "{{ include "exampleabpapplicationlayer.hosts.httpapi" . }}",
+            "redirectUri": "{{ include "exampleabpapplicationlayer.hosts.angular" . }}",
+            "requireHttps": "true",
+            "clientId": "ExampleAbpApplicationLayer_App",
+            "responseType": "code",
+            "scope": "offline_access ExampleAbpApplicationLayer",
+            "strictDiscoveryDocumentValidation": false,
+            "skipIssuerCheck": true
+        },
+        "apis": {
+            "default": {
+                "url": "{{ include "exampleabpapplicationlayer.hosts.httpapi" . }}",
+                "rootNamespace": "ExampleAbpApplicationLayer"
+            }
+        }
+    }

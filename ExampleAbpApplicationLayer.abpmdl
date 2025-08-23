@@ -1,0 +1,125 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXTheme": {
+      "version": "4.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.TextTemplateManagement": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Chat": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.FileManagement": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.Gdpr": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.AuditLogging.Pro": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity.Pro": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.Account.Pro": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.1",
+      "isInstalled": true
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "ExampleAbpApplicationLayer.Application": {
+      "path": "src/ExampleAbpApplicationLayer.Application/ExampleAbpApplicationLayer.Application.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.Application.Tests": {
+      "path": "test/ExampleAbpApplicationLayer.Application.Tests/ExampleAbpApplicationLayer.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "ExampleAbpApplicationLayer.Domain.Shared": {
+      "path": "src/ExampleAbpApplicationLayer.Domain.Shared/ExampleAbpApplicationLayer.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.Application.Contracts": {
+      "path": "src/ExampleAbpApplicationLayer.Application.Contracts/ExampleAbpApplicationLayer.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.HttpApi": {
+      "path": "src/ExampleAbpApplicationLayer.HttpApi/ExampleAbpApplicationLayer.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.HttpApi.Client": {
+      "path": "src/ExampleAbpApplicationLayer.HttpApi.Client/ExampleAbpApplicationLayer.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.EntityFrameworkCore.Tests": {
+      "path": "test/ExampleAbpApplicationLayer.EntityFrameworkCore.Tests/ExampleAbpApplicationLayer.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "ExampleAbpApplicationLayer.EntityFrameworkCore": {
+      "path": "src/ExampleAbpApplicationLayer.EntityFrameworkCore/ExampleAbpApplicationLayer.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.TestBase": {
+      "path": "test/ExampleAbpApplicationLayer.TestBase/ExampleAbpApplicationLayer.TestBase.abppkg",
+      "folder": "test"
+    },
+    "ExampleAbpApplicationLayer.Domain.Tests": {
+      "path": "test/ExampleAbpApplicationLayer.Domain.Tests/ExampleAbpApplicationLayer.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "ExampleAbpApplicationLayer.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/ExampleAbpApplicationLayer.HttpApi.Client.ConsoleTestApp/ExampleAbpApplicationLayer.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "ExampleAbpApplicationLayer.DbMigrator": {
+      "path": "src/ExampleAbpApplicationLayer.DbMigrator/ExampleAbpApplicationLayer.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.HttpApi.Host": {
+      "path": "src/ExampleAbpApplicationLayer.HttpApi.Host/ExampleAbpApplicationLayer.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "ExampleAbpApplicationLayer.Domain": {
+      "path": "src/ExampleAbpApplicationLayer.Domain/ExampleAbpApplicationLayer.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

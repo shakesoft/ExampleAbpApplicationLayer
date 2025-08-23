@@ -1,0 +1,10 @@
+{
+  "config": {
+    "context": "docker-desktop",
+    "namespace": "exampleabpapplicationlayer-local"
+  },
+  "metadata": {
+    "dotnetEnvironment": "Staging"
+  },
+  "services": {}
+}

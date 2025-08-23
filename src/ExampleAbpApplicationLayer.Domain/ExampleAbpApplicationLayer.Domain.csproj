@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ExampleAbpApplicationLayer</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleAbpApplicationLayer.Domain.Shared\ExampleAbpApplicationLayer.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Emailing" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.Caching" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.BlobStoring.Database.Domain" Version="9.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.OpenIddict.Pro.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.Identity.Pro.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.Commercial.SuiteTemplates" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.LanguageManagement.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.FileManagement.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Saas.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Chat.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.TextTemplateManagement.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.Gdpr.Domain" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.LeptonXTheme.Management.Domain" Version="4.3.1" />
+  </ItemGroup>
+
+</Project>
