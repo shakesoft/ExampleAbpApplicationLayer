@@ -29,19 +29,19 @@ namespace ExampleAbpApplicationLayer.Products
             // Assert
             result.TotalCount.ShouldBe(2);
             result.Items.Count.ShouldBe(2);
-            result.Items.Any(x => x.Id == Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a")).ShouldBe(true);
-            result.Items.Any(x => x.Id == Guid.Parse("04e3ee65-95e5-404d-93c1-0cdbc590e4d5")).ShouldBe(true);
+            result.Items.Any(x => x.Id == Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30")).ShouldBe(true);
+            result.Items.Any(x => x.Id == Guid.Parse("1fb2febb-25f1-48b5-83f0-4c7b4c218476")).ShouldBe(true);
         }
 
         [Fact]
         public async Task GetAsync()
         {
             // Act
-            var result = await _productsAppService.GetAsync(Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"));
+            var result = await _productsAppService.GetAsync(Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"));
 
             // Assert
             result.ShouldNotBeNull();
-            result.Id.ShouldBe(Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"));
+            result.Id.ShouldBe(Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"));
         }
 
         [Fact]
@@ -50,9 +50,9 @@ namespace ExampleAbpApplicationLayer.Products
             // Arrange
             var input = new ProductCreateDto
             {
-                Name = "b2761cdd53fe4a3cb8ab677333066c161bd4c0b77fc54ff",
-                Desc = "66c239536b0d4e27831753a9f6d751750c51ae3d662e419daefe",
-                Price = 594822901,
+                Name = "bac02df9832f493cada933bc16daec5d7537d5e15a954fc18b3d",
+                Desc = "893e6f582",
+                Price = 483816289,
                 IsActive = true
             };
 
@@ -63,9 +63,9 @@ namespace ExampleAbpApplicationLayer.Products
             var result = await _productRepository.FindAsync(c => c.Id == serviceResult.Id);
 
             result.ShouldNotBe(null);
-            result.Name.ShouldBe("b2761cdd53fe4a3cb8ab677333066c161bd4c0b77fc54ff");
-            result.Desc.ShouldBe("66c239536b0d4e27831753a9f6d751750c51ae3d662e419daefe");
-            result.Price.ShouldBe(594822901);
+            result.Name.ShouldBe("bac02df9832f493cada933bc16daec5d7537d5e15a954fc18b3d");
+            result.Desc.ShouldBe("893e6f582");
+            result.Price.ShouldBe(483816289);
             result.IsActive.ShouldBe(true);
         }
 
@@ -75,22 +75,22 @@ namespace ExampleAbpApplicationLayer.Products
             // Arrange
             var input = new ProductUpdateDto()
             {
-                Name = "6be7f8a92c764c49b10",
-                Desc = "3e8200c65d9f47e29a059b8abf5b8329116ac3cc1200433089d6bdb6496527d834a63df59478447b8f82157",
-                Price = 638338967,
+                Name = "6f2999bf4a71400d98bd5217e63611477d14",
+                Desc = "af562c7a791346e0b6fc4163368bb75deef92116279d4acfa945aac0ed10e57bd5732d565c7a4d6a9088",
+                Price = 1002811477,
                 IsActive = true
             };
 
             // Act
-            var serviceResult = await _productsAppService.UpdateAsync(Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"), input);
+            var serviceResult = await _productsAppService.UpdateAsync(Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"), input);
 
             // Assert
             var result = await _productRepository.FindAsync(c => c.Id == serviceResult.Id);
 
             result.ShouldNotBe(null);
-            result.Name.ShouldBe("6be7f8a92c764c49b10");
-            result.Desc.ShouldBe("3e8200c65d9f47e29a059b8abf5b8329116ac3cc1200433089d6bdb6496527d834a63df59478447b8f82157");
-            result.Price.ShouldBe(638338967);
+            result.Name.ShouldBe("6f2999bf4a71400d98bd5217e63611477d14");
+            result.Desc.ShouldBe("af562c7a791346e0b6fc4163368bb75deef92116279d4acfa945aac0ed10e57bd5732d565c7a4d6a9088");
+            result.Price.ShouldBe(1002811477);
             result.IsActive.ShouldBe(true);
         }
 
@@ -98,10 +98,10 @@ namespace ExampleAbpApplicationLayer.Products
         public async Task DeleteAsync()
         {
             // Act
-            await _productsAppService.DeleteAsync(Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"));
+            await _productsAppService.DeleteAsync(Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"));
 
             // Assert
-            var result = await _productRepository.FindAsync(c => c.Id == Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"));
+            var result = await _productRepository.FindAsync(c => c.Id == Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"));
 
             result.ShouldBeNull();
         }

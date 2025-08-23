@@ -1,3 +1,4 @@
+using ExampleAbpApplicationLayer.OrderItems;
 using ExampleAbpApplicationLayer.Orders;
 using System;
 using ExampleAbpApplicationLayer.Shared;
@@ -20,5 +21,9 @@ public class ExampleAbpApplicationLayerApplicationAutoMapperProfile : Profile
 
         CreateMap<Order, OrderDto>();
         CreateMap<Order, OrderExcelDto>();
+
+        CreateMap<OrderItem, OrderItemDto>();
+        CreateMap<OrderItemWithNavigationProperties, OrderItemWithNavigationPropertiesDto>();
+        CreateMap<Product, LookupDto<Guid>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
     }
 }

@@ -1,3 +1,5 @@
+using ExampleAbpApplicationLayer.OrderItems;
+
 using ExampleAbpApplicationLayer.Orders;
 
 using ExampleAbpApplicationLayer.Products;
@@ -62,6 +64,8 @@ public class ExampleAbpApplicationLayerEntityFrameworkCoreModule : AbpModule
             options.AddRepository<Product, Products.EfCoreProductRepository>();
 
             options.AddRepository<Order, Orders.EfCoreOrderRepository>();
+
+            options.AddRepository<OrderItem, OrderItems.EfCoreOrderItemRepository>();
 
         });
 

@@ -99,6 +99,20 @@
     "MinStatus": "Min Status",
     "MaxOrderDate": "Max Order Date",
     "MaxTotalAmount": "Max Total Amount",
-    "MaxStatus": "Max Status"
+    "MaxStatus": "Max Status",
+    "OrderItems": "Order Items",
+    "NewOrderItem": "New Order Item",
+    "OrderItem": "Order Item",
+    "Menu:OrderItems": "Order Items",
+    "Qty": "Qty",
+    "TotalPrice": "Total Price",
+    "ProductName": "Product Name",
+    "MinQty": "Min Qty",
+    "MinTotalPrice": "Min Total Price",
+    "MinProductName": "Min Product Name",
+    "MaxQty": "Max Qty",
+    "MaxTotalPrice": "Max Total Price",
+    "MaxProductName": "Max Product Name",
+    "Permission:OrderItems": "Order Items"
   }
 }

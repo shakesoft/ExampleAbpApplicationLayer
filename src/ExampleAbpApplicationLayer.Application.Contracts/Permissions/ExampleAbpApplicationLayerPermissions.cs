@@ -29,4 +29,12 @@ public static class ExampleAbpApplicationLayerPermissions
         public const string Create = Default + ".Create";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class OrderItems
+    {
+        public const string Default = GroupName + ".OrderItems";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }

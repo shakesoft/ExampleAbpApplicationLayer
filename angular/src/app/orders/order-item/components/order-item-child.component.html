@@ -1,0 +1,99 @@
+<div class="text-lg-end py-1">
+  <!--<suite-custom-code-block-0>-->
+  <!--</suite-custom-code-block-0>-->
+  <button
+    *abpPermission="'ExampleAbpApplicationLayer.OrderItems.Create'"
+    class="btn btn-primary btn-sm"
+    type="button"
+    (click)="create()"
+  >
+    <i class="fa fa-plus me-1" aria-hidden="true"></i>
+    {{ '::NewOrderItem' | abpLocalization }}
+  </button>
+  <!--<suite-custom-code-block-1>-->
+  <!--</suite-custom-code-block-1>-->
+</div>
+<!--<suite-custom-code-block-2>-->
+<!--</suite-custom-code-block-2>-->
+<ngx-datatable default [list]="list" [rows]="service.data.items" [count]="service.data.totalCount">
+  @if (isActionButtonVisible) {
+    <ngx-datatable-column
+      [name]="'AbpUi::Actions' | abpLocalization"
+      [maxWidth]="150"
+      [width]="150"
+      [sortable]="false"
+    >
+      <ng-template let-row="row" let-i="rowIndex" ngx-datatable-cell-template>
+        <div ngbDropdown container="body" class="d-inline-block">
+          <button
+            class="btn btn-primary btn-sm dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            ngbDropdownToggle
+          >
+            <i class="fa fa-cog me-1" aria-hidden="true"></i>
+            {{ 'AbpUi::Actions' | abpLocalization }}
+          </button>
+
+          <div ngbDropdownMenu>
+            <button
+              ngbDropdownItem
+              *abpPermission="'ExampleAbpApplicationLayer.OrderItems.Edit'"
+              (click)="update(row)"
+            >
+              {{ 'AbpUi::Edit' | abpLocalization }}
+            </button>
+
+            <button
+              ngbDropdownItem
+              *abpPermission="'ExampleAbpApplicationLayer.OrderItems.Delete'"
+              (click)="delete(row)"
+            >
+              {{ 'AbpUi::Delete' | abpLocalization }}
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <!--<suite-custom-code-block-3>-->
+      <!--</suite-custom-code-block-3>-->
+    </ngx-datatable-column>
+  }
+  <ngx-datatable-column name="{{ '::Qty' | abpLocalization }}" prop="orderItem.qty">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.orderItem.qty }}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="{{ '::Price' | abpLocalization }}" prop="orderItem.price">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.orderItem.price }}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="{{ '::TotalPrice' | abpLocalization }}" prop="orderItem.totalPrice">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.orderItem.totalPrice }}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="{{ '::ProductName' | abpLocalization }}" prop="orderItem.productName">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.orderItem.productName }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="{{ '::Product' | abpLocalization }}" prop="product.id">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.product?.name }}
+    </ng-template>
+  </ngx-datatable-column>
+  <!--<suite-custom-code-block-4>-->
+  <!--</suite-custom-code-block-4>-->
+</ngx-datatable>
+
+<!--<suite-custom-code-block-5>-->
+<!--</suite-custom-code-block-5>-->
+
+@defer (when serviceDetail.isVisible) {
+  @if (serviceDetail.isVisible) {
+    <app-order-item-detail-modal />
+  }
+}

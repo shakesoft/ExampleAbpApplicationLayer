@@ -26,6 +26,11 @@ public class ExampleAbpApplicationLayerPermissionDefinitionProvider : Permission
         orderPermission.AddChild(ExampleAbpApplicationLayerPermissions.Orders.Create, L("Permission:Create"));
         orderPermission.AddChild(ExampleAbpApplicationLayerPermissions.Orders.Edit, L("Permission:Edit"));
         orderPermission.AddChild(ExampleAbpApplicationLayerPermissions.Orders.Delete, L("Permission:Delete"));
+
+        var orderItemPermission = myGroup.AddPermission(ExampleAbpApplicationLayerPermissions.OrderItems.Default, L("Permission:OrderItems"));
+        orderItemPermission.AddChild(ExampleAbpApplicationLayerPermissions.OrderItems.Create, L("Permission:Create"));
+        orderItemPermission.AddChild(ExampleAbpApplicationLayerPermissions.OrderItems.Edit, L("Permission:Edit"));
+        orderItemPermission.AddChild(ExampleAbpApplicationLayerPermissions.OrderItems.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

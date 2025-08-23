@@ -25,14 +25,14 @@ namespace ExampleAbpApplicationLayer.EntityFrameworkCore.Domains.Products
             {
                 // Act
                 var result = await _productRepository.GetListAsync(
-                    name: "e6bf143753e3420d857e9a424a965dc5e8441c7fdec24bf",
+                    name: "11c71ef2c24743f9a15561f887f77ff1af1fc02044ad40b08b2cdee1a9f4227728370b25ec",
                     isActive: true
                 );
 
                 // Assert
                 result.Count.ShouldBe(1);
                 result.FirstOrDefault().ShouldNotBe(null);
-                result.First().Id.ShouldBe(Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"));
+                result.First().Id.ShouldBe(Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"));
             });
         }
 
@@ -44,7 +44,7 @@ namespace ExampleAbpApplicationLayer.EntityFrameworkCore.Domains.Products
             {
                 // Act
                 var result = await _productRepository.GetCountAsync(
-                    name: "9f913530214946",
+                    name: "c75153fbae544e9f9877689c8f8b37be6490c5f01e4348ab93f19a95ea61a964bcbe1532bf6c4cc78beb027269229847db",
                     isActive: true
                 );
 

@@ -1,3 +1,4 @@
+using ExampleAbpApplicationLayer.OrderItems;
 using ExampleAbpApplicationLayer.Orders;
 using ExampleAbpApplicationLayer.Products;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,7 @@ public class ExampleAbpApplicationLayerDbContext :
     ISaasDbContext,
     IIdentityProDbContext
 {
+    public DbSet<OrderItem> OrderItems { get; set; } = null!;
     public DbSet<Order> Orders { get; set; } = null!;
     public DbSet<Product> Products { get; set; } = null!;
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
@@ -102,6 +104,29 @@ public class ExampleAbpApplicationLayerDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+        builder.Entity<Order>(b =>
+                {
+                    b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "Orders", ExampleAbpApplicationLayerConsts.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(Order.TenantId));
+                    b.Property(x => x.OrderDate).HasColumnName(nameof(Order.OrderDate));
+                    b.Property(x => x.TotalAmount).HasColumnName(nameof(Order.TotalAmount));
+                    b.Property(x => x.Status).HasColumnName(nameof(Order.Status));
+                    b.HasMany(x => x.OrderItems).WithOne().HasForeignKey(x => x.OrderId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+                });
+        builder.Entity<OrderItem>(b =>
+                {
+                    b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "OrderItems", ExampleAbpApplicationLayerConsts.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(OrderItem.TenantId));
+                    b.Property(x => x.Qty).HasColumnName(nameof(OrderItem.Qty));
+                    b.Property(x => x.Price).HasColumnName(nameof(OrderItem.Price));
+                    b.Property(x => x.TotalPrice).HasColumnName(nameof(OrderItem.TotalPrice));
+                    b.Property(x => x.ProductName).HasColumnName(nameof(OrderItem.ProductName));
+                    b.HasOne<Product>().WithMany().IsRequired().HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.NoAction);
+                    b.HasOne<Order>().WithMany(x => x.OrderItems).HasForeignKey(x => x.OrderId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+                });
         builder.Entity<Product>(b =>
                 {
                     b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "Products", ExampleAbpApplicationLayerConsts.DbSchema);
@@ -111,15 +136,6 @@ public class ExampleAbpApplicationLayerDbContext :
                     b.Property(x => x.Desc).HasColumnName(nameof(Product.Desc));
                     b.Property(x => x.Price).HasColumnName(nameof(Product.Price));
                     b.Property(x => x.IsActive).HasColumnName(nameof(Product.IsActive));
-                });
-        builder.Entity<Order>(b =>
-                {
-                    b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "Orders", ExampleAbpApplicationLayerConsts.DbSchema);
-                    b.ConfigureByConvention();
-                    b.Property(x => x.TenantId).HasColumnName(nameof(Order.TenantId));
-                    b.Property(x => x.OrderDate).HasColumnName(nameof(Order.OrderDate));
-                    b.Property(x => x.TotalAmount).HasColumnName(nameof(Order.TotalAmount));
-                    b.Property(x => x.Status).HasColumnName(nameof(Order.Status));
                 });
     }
 }

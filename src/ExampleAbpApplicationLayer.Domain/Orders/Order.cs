@@ -8,6 +8,8 @@ using Volo.Abp.Domain.Entities.Auditing;
 using Volo.Abp.MultiTenancy;
 using JetBrains.Annotations;
 
+using ExampleAbpApplicationLayer.OrderItems;
+
 using Volo.Abp;
 
 namespace ExampleAbpApplicationLayer.Orders
@@ -22,6 +24,8 @@ namespace ExampleAbpApplicationLayer.Orders
 
         public virtual OrderStatus Status { get; set; }
 
+        public ICollection<OrderItem> OrderItems { get; private set; }
+
         protected OrderBase()
         {
 
@@ -34,6 +38,7 @@ namespace ExampleAbpApplicationLayer.Orders
             OrderDate = orderDate;
             TotalAmount = totalAmount;
             Status = status;
+            OrderItems = new Collection<OrderItem>();
         }
 
     }

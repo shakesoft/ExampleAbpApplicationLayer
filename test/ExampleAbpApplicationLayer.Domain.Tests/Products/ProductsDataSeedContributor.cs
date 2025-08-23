@@ -29,19 +29,19 @@ namespace ExampleAbpApplicationLayer.Products
 
             await _productRepository.InsertAsync(new Product
             (
-                id: Guid.Parse("141338a2-38b2-4506-add6-2adc4afb993a"),
-                name: "e6bf143753e3420d857e9a424a965dc5e8441c7fdec24bf",
-                desc: "8d7d45bc29e4496cb71ecef8f212fdf3323602efb12844eda4b9532a",
-                price: 1156311753,
+                id: Guid.Parse("d6604948-933e-4944-8191-ab78d78f1d30"),
+                name: "11c71ef2c24743f9a15561f887f77ff1af1fc02044ad40b08b2cdee1a9f4227728370b25ec",
+                desc: "ca38a7fceb674ede95bb5732eb52",
+                price: 983272089,
                 isActive: true
             ));
 
             await _productRepository.InsertAsync(new Product
             (
-                id: Guid.Parse("04e3ee65-95e5-404d-93c1-0cdbc590e4d5"),
-                name: "9f913530214946",
-                desc: "f6c75408264944328b9abe6f304e9d21bd8b87bc0353496888f88b47c6f7",
-                price: 1504960767,
+                id: Guid.Parse("1fb2febb-25f1-48b5-83f0-4c7b4c218476"),
+                name: "c75153fbae544e9f9877689c8f8b37be6490c5f01e4348ab93f19a95ea61a964bcbe1532bf6c4cc78beb027269229847db",
+                desc: "ea807e41d2b84c10a9f58c9c7534dd7d1e4add1437e64df6ab688756ec",
+                price: 1794088944,
                 isActive: true
             ));
 
