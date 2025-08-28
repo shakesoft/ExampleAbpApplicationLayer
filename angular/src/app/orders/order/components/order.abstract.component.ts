@@ -10,7 +10,7 @@ import {
 import { ListService, PermissionService, TrackByService } from '@abp/ng.core';
 
 import { orderStatusOptions } from '../../../proxy/enums/orders/order-status.enum';
-import type { OrderDto } from '../../../proxy/orders/models';
+import type { OrderWithNavigationPropertiesDto } from '../../../proxy/orders/models';
 import { OrderViewService } from '../services/order.service';
 import { OrderDetailViewService } from '../services/order-detail.service';
 import { OrderItemComponent } from '../../order-item/components/order-item-child.component';
@@ -54,11 +54,11 @@ export abstract class AbstractOrderComponent implements OnInit {
     this.serviceDetail.showForm();
   }
 
-  update(record: OrderDto) {
+  update(record: OrderWithNavigationPropertiesDto) {
     this.serviceDetail.update(record);
   }
 
-  delete(record: OrderDto) {
+  delete(record: OrderWithNavigationPropertiesDto) {
     this.service.delete(record);
   }
 

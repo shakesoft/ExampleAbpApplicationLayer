@@ -31,7 +31,7 @@ namespace ExampleAbpApplicationLayer.EntityFrameworkCore.Domains.Orders
                 // Assert
                 result.Count.ShouldBe(1);
                 result.FirstOrDefault().ShouldNotBe(null);
-                result.First().Id.ShouldBe(Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"));
+                result.First().Id.ShouldBe(Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"));
             });
         }
 

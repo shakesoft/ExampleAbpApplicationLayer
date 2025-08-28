@@ -29,18 +29,18 @@ namespace ExampleAbpApplicationLayer.Orders
 
             await _orderRepository.InsertAsync(new Order
             (
-                id: Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"),
-                orderDate: new DateTime(2012, 5, 5),
-                totalAmount: 489686810,
+                id: Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"),
+                orderDate: new DateTime(2014, 8, 10),
+                totalAmount: 442297264,
                 status: default,
                 identityUserId: null
             ));
 
             await _orderRepository.InsertAsync(new Order
             (
-                id: Guid.Parse("bda19146-3ed5-47d6-9750-3844b52808c3"),
-                orderDate: new DateTime(2000, 2, 18),
-                totalAmount: 2002917785,
+                id: Guid.Parse("d5545aa7-9121-4baa-9bc5-d232e20f6482"),
+                orderDate: new DateTime(2017, 4, 11),
+                totalAmount: 1109970867,
                 status: default,
                 identityUserId: null
             ));

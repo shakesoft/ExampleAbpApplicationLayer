@@ -5,7 +5,7 @@ import { ListService, TrackByService } from '@abp/ng.core';
 import { finalize, tap } from 'rxjs/operators';
 
 import { orderStatusOptions } from '../../../proxy/enums/orders/order-status.enum';
-import type { OrderDto } from '../../../proxy/orders/models';
+import type { OrderWithNavigationPropertiesDto } from '../../../proxy/orders/models';
 import { OrderService } from '../../../proxy/orders/order.service';
 
 export abstract class AbstractOrderDetailViewService {
@@ -14,6 +14,8 @@ export abstract class AbstractOrderDetailViewService {
 
   public readonly proxyService = inject(OrderService);
   public readonly list = inject(ListService);
+
+  public readonly getIdentityUserLookup = this.proxyService.getIdentityUserLookup;
 
   orderStatusOptions = orderStatusOptions;
 
@@ -28,9 +30,9 @@ export abstract class AbstractOrderDetailViewService {
     };
 
     if (this.selected) {
-      return this.proxyService.update(this.selected.id, {
+      return this.proxyService.update(this.selected.order.id, {
         ...formValues,
-        concurrencyStamp: this.selected.concurrencyStamp,
+        concurrencyStamp: this.selected.order.concurrencyStamp,
       });
     }
 
@@ -38,12 +40,13 @@ export abstract class AbstractOrderDetailViewService {
   }
 
   buildForm() {
-    const { orderDate, totalAmount, status } = this.selected || {};
+    const { orderDate, totalAmount, status, identityUserId } = this.selected?.order || {};
 
     this.form = this.fb.group({
       orderDate: [orderDate ?? null, [Validators.required]],
       totalAmount: [totalAmount ?? '0', [Validators.required]],
       status: [status ?? null, [Validators.required]],
+      identityUserId: [identityUserId ?? null, []],
     });
   }
 
@@ -57,7 +60,7 @@ export abstract class AbstractOrderDetailViewService {
     this.showForm();
   }
 
-  update(record: OrderDto) {
+  update(record: OrderWithNavigationPropertiesDto) {
     this.selected = record;
     this.showForm();
   }

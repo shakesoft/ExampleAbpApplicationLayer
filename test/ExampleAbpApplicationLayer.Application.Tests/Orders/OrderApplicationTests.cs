@@ -29,19 +29,19 @@ namespace ExampleAbpApplicationLayer.Orders
             // Assert
             result.TotalCount.ShouldBe(2);
             result.Items.Count.ShouldBe(2);
-            result.Items.Any(x => x.Order.Id == Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668")).ShouldBe(true);
-            result.Items.Any(x => x.Order.Id == Guid.Parse("bda19146-3ed5-47d6-9750-3844b52808c3")).ShouldBe(true);
+            result.Items.Any(x => x.Order.Id == Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d")).ShouldBe(true);
+            result.Items.Any(x => x.Order.Id == Guid.Parse("d5545aa7-9121-4baa-9bc5-d232e20f6482")).ShouldBe(true);
         }
 
         [Fact]
         public async Task GetAsync()
         {
             // Act
-            var result = await _ordersAppService.GetAsync(Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"));
+            var result = await _ordersAppService.GetAsync(Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"));
 
             // Assert
             result.ShouldNotBeNull();
-            result.Id.ShouldBe(Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"));
+            result.Id.ShouldBe(Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"));
         }
 
         [Fact]
@@ -50,8 +50,8 @@ namespace ExampleAbpApplicationLayer.Orders
             // Arrange
             var input = new OrderCreateDto
             {
-                OrderDate = new DateTime(2021, 5, 8),
-                TotalAmount = 1975980167,
+                OrderDate = new DateTime(2018, 5, 16),
+                TotalAmount = 1586680255,
                 Status = default
             };
 
@@ -62,8 +62,8 @@ namespace ExampleAbpApplicationLayer.Orders
             var result = await _orderRepository.FindAsync(c => c.Id == serviceResult.Id);
 
             result.ShouldNotBe(null);
-            result.OrderDate.ShouldBe(new DateTime(2021, 5, 8));
-            result.TotalAmount.ShouldBe(1975980167);
+            result.OrderDate.ShouldBe(new DateTime(2018, 5, 16));
+            result.TotalAmount.ShouldBe(1586680255);
             result.Status.ShouldBe(default);
         }
 
@@ -73,20 +73,20 @@ namespace ExampleAbpApplicationLayer.Orders
             // Arrange
             var input = new OrderUpdateDto()
             {
-                OrderDate = new DateTime(2018, 5, 8),
-                TotalAmount = 1385158195,
+                OrderDate = new DateTime(2019, 5, 9),
+                TotalAmount = 698533817,
                 Status = default
             };
 
             // Act
-            var serviceResult = await _ordersAppService.UpdateAsync(Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"), input);
+            var serviceResult = await _ordersAppService.UpdateAsync(Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"), input);
 
             // Assert
             var result = await _orderRepository.FindAsync(c => c.Id == serviceResult.Id);
 
             result.ShouldNotBe(null);
-            result.OrderDate.ShouldBe(new DateTime(2018, 5, 8));
-            result.TotalAmount.ShouldBe(1385158195);
+            result.OrderDate.ShouldBe(new DateTime(2019, 5, 9));
+            result.TotalAmount.ShouldBe(698533817);
             result.Status.ShouldBe(default);
         }
 
@@ -94,10 +94,10 @@ namespace ExampleAbpApplicationLayer.Orders
         public async Task DeleteAsync()
         {
             // Act
-            await _ordersAppService.DeleteAsync(Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"));
+            await _ordersAppService.DeleteAsync(Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"));
 
             // Assert
-            var result = await _orderRepository.FindAsync(c => c.Id == Guid.Parse("5474ba67-048e-4654-a33f-6df2eba8e668"));
+            var result = await _orderRepository.FindAsync(c => c.Id == Guid.Parse("0d508788-38cc-4743-804d-65adda7f6a6d"));
 
             result.ShouldBeNull();
         }

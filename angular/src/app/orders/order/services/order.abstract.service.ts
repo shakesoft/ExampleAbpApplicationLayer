@@ -2,7 +2,10 @@ import { inject } from '@angular/core';
 import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
 import { ABP, AbpWindowService, ListService, PagedResultDto } from '@abp/ng.core';
 import { filter, switchMap, finalize } from 'rxjs/operators';
-import type { GetOrdersInput, OrderDto } from '../../../proxy/orders/models';
+import type {
+  GetOrdersInput,
+  OrderWithNavigationPropertiesDto,
+} from '../../../proxy/orders/models';
 import { OrderService } from '../../../proxy/orders/order.service';
 
 export abstract class AbstractOrderViewService {
@@ -13,19 +16,19 @@ export abstract class AbstractOrderViewService {
 
   isExportToExcelBusy = false;
 
-  data: PagedResultDto<OrderDto> = {
+  data: PagedResultDto<OrderWithNavigationPropertiesDto> = {
     items: [],
     totalCount: 0,
   };
 
   filters = {} as GetOrdersInput;
 
-  delete(record: OrderDto) {
+  delete(record: OrderWithNavigationPropertiesDto) {
     this.confirmationService
       .warn('::DeleteConfirmationMessage', '::AreYouSure', { messageLocalizationParams: [] })
       .pipe(
         filter(status => status === Confirmation.Status.confirm),
-        switchMap(() => this.proxyService.delete(record.id)),
+        switchMap(() => this.proxyService.delete(record.order.id)),
       )
       .subscribe(this.list.get);
   }
@@ -38,7 +41,7 @@ export abstract class AbstractOrderViewService {
         filterText: query.filter,
       });
 
-    const setData = (list: PagedResultDto<OrderDto>) => {
+    const setData = (list: PagedResultDto<OrderWithNavigationPropertiesDto>) => {
       this.data = list;
     };
 

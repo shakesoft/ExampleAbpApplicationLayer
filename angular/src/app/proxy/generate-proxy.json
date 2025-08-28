@@ -140,11 +140,58 @@
                   "constraintTypes": null,
                   "bindingSourceId": "ModelBinding",
                   "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "IdentityUserId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ExampleAbpApplicationLayer.Orders.OrderDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ExampleAbpApplicationLayer.Orders.OrderDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ExampleAbpApplicationLayer.Orders.OrderWithNavigationPropertiesDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ExampleAbpApplicationLayer.Orders.OrderWithNavigationPropertiesDto>"
+              }
+            },
+            "GetWithNavigationPropertiesAsyncById": {
+              "uniqueName": "GetWithNavigationPropertiesAsyncById",
+              "name": "GetWithNavigationPropertiesAsync",
+              "httpMethod": "GET",
+              "url": "api/app/orders/with-navigation-properties/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ExampleAbpApplicationLayer.Orders.OrderWithNavigationPropertiesDto",
+                "typeSimple": "ExampleAbpApplicationLayer.Orders.OrderWithNavigationPropertiesDto"
               }
             },
             "GetAsyncById": {
@@ -180,6 +227,65 @@
               "returnValue": {
                 "type": "ExampleAbpApplicationLayer.Orders.OrderDto",
                 "typeSimple": "ExampleAbpApplicationLayer.Orders.OrderDto"
+              }
+            },
+            "GetIdentityUserLookupAsyncByInput": {
+              "uniqueName": "GetIdentityUserLookupAsyncByInput",
+              "name": "GetIdentityUserLookupAsync",
+              "httpMethod": "GET",
+              "url": "api/app/orders/identity-user-lookup",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "ExampleAbpApplicationLayer.Shared.LookupRequestDto, ExampleAbpApplicationLayer.Application.Contracts",
+                  "type": "ExampleAbpApplicationLayer.Shared.LookupRequestDto",
+                  "typeSimple": "ExampleAbpApplicationLayer.Shared.LookupRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ExampleAbpApplicationLayer.Shared.LookupDto<System.Guid?>>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ExampleAbpApplicationLayer.Shared.LookupDto<string?>>"
               }
             },
             "GetListAsExcelFileAsyncByInput": {
@@ -280,6 +386,19 @@
                   "jsonName": null,
                   "type": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus?",
                   "typeSimple": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "IdentityUserId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
                   "isRequired": false,
                   "nameOnMethod": "input",
                   "isOptional": true,
@@ -2306,6 +2425,13 @@
           "type": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus?",
           "typeSimple": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus?",
           "isRequired": false
+        },
+        {
+          "name": "IdentityUserId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false
         }
       ]
     },
@@ -2337,6 +2463,14 @@
           "jsonName": null,
           "type": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus",
           "typeSimple": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus",
+          "isRequired": false
+        },
+        {
+          "name": "IdentityUserId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRef": true,
           "isRequired": false
         },
         {
@@ -2377,6 +2511,14 @@
           "type": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus",
           "typeSimple": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus",
           "isRequired": false
+        },
+        {
+          "name": "IdentityUserId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRef": true,
+          "isRequired": false
         }
       ]
     },
@@ -2408,6 +2550,14 @@
           "jsonName": null,
           "type": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus",
           "typeSimple": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus",
+          "isRequired": false
+        },
+        {
+          "name": "IdentityUserId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRef": true,
           "isRequired": false
         },
         {
@@ -2512,6 +2662,13 @@
           "jsonName": null,
           "type": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus?",
           "typeSimple": "ExampleAbpApplicationLayer.Enums.Orders.OrderStatus?",
+          "isRequired": false
+        },
+        {
+          "name": "IdentityUserId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false
         }
       ]
@@ -3151,6 +3308,29 @@
           "jsonName": null,
           "type": "System.Bool?",
           "typeSimple": "boolean?",
+          "isRequired": false
+        }
+      ]
+    },
+    "ExampleAbpApplicationLayer.Orders.OrderWithNavigationPropertiesDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Order",
+          "jsonName": null,
+          "type": "ExampleAbpApplicationLayer.Orders.OrderDto",
+          "typeSimple": "ExampleAbpApplicationLayer.Orders.OrderDto",
+          "isRequired": false
+        },
+        {
+          "name": "IdentityUser",
+          "jsonName": null,
+          "type": "Volo.Abp.Identity.IdentityUserDto",
+          "typeSimple": "Volo.Abp.Identity.IdentityUserDto",
           "isRequired": false
         }
       ]
