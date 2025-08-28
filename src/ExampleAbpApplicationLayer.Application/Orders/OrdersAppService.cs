@@ -1,3 +1,5 @@
+using ExampleAbpApplicationLayer.Shared;
+using Volo.Abp.Identity;
 using System;
 using System.IO;
 using System.Linq;
@@ -28,29 +30,53 @@ namespace ExampleAbpApplicationLayer.Orders
         protected IOrderRepository _orderRepository;
         protected OrderManager _orderManager;
 
-        public OrdersAppServiceBase(IOrderRepository orderRepository, OrderManager orderManager, IDistributedCache<OrderDownloadTokenCacheItem, string> downloadTokenCache)
+        protected IRepository<Volo.Abp.Identity.IdentityUser, Guid> _identityUserRepository;
+
+        public OrdersAppServiceBase(IOrderRepository orderRepository, OrderManager orderManager, IDistributedCache<OrderDownloadTokenCacheItem, string> downloadTokenCache, IRepository<Volo.Abp.Identity.IdentityUser, Guid> identityUserRepository)
         {
             _downloadTokenCache = downloadTokenCache;
             _orderRepository = orderRepository;
-            _orderManager = orderManager;
+            _orderManager = orderManager; _identityUserRepository = identityUserRepository;
 
         }
 
-        public virtual async Task<PagedResultDto<OrderDto>> GetListAsync(GetOrdersInput input)
+        public virtual async Task<PagedResultDto<OrderWithNavigationPropertiesDto>> GetListAsync(GetOrdersInput input)
         {
-            var totalCount = await _orderRepository.GetCountAsync(input.FilterText, input.OrderDateMin, input.OrderDateMax, input.TotalAmountMin, input.TotalAmountMax, input.Status);
-            var items = await _orderRepository.GetListAsync(input.FilterText, input.OrderDateMin, input.OrderDateMax, input.TotalAmountMin, input.TotalAmountMax, input.Status, input.Sorting, input.MaxResultCount, input.SkipCount);
+            var totalCount = await _orderRepository.GetCountAsync(input.FilterText, input.OrderDateMin, input.OrderDateMax, input.TotalAmountMin, input.TotalAmountMax, input.Status, input.IdentityUserId);
+            var items = await _orderRepository.GetListWithNavigationPropertiesAsync(input.FilterText, input.OrderDateMin, input.OrderDateMax, input.TotalAmountMin, input.TotalAmountMax, input.Status, input.IdentityUserId, input.Sorting, input.MaxResultCount, input.SkipCount);
 
-            return new PagedResultDto<OrderDto>
+            return new PagedResultDto<OrderWithNavigationPropertiesDto>
             {
                 TotalCount = totalCount,
-                Items = ObjectMapper.Map<List<Order>, List<OrderDto>>(items)
+                Items = ObjectMapper.Map<List<OrderWithNavigationProperties>, List<OrderWithNavigationPropertiesDto>>(items)
             };
+        }
+
+        public virtual async Task<OrderWithNavigationPropertiesDto> GetWithNavigationPropertiesAsync(Guid id)
+        {
+            return ObjectMapper.Map<OrderWithNavigationProperties, OrderWithNavigationPropertiesDto>
+                (await _orderRepository.GetWithNavigationPropertiesAsync(id));
         }
 
         public virtual async Task<OrderDto> GetAsync(Guid id)
         {
             return ObjectMapper.Map<Order, OrderDto>(await _orderRepository.GetAsync(id));
+        }
+
+        public virtual async Task<PagedResultDto<LookupDto<Guid>>> GetIdentityUserLookupAsync(LookupRequestDto input)
+        {
+            var query = (await _identityUserRepository.GetQueryableAsync())
+                .WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
+                    x => x.UserName != null &&
+                         x.UserName.Contains(input.Filter));
+
+            var lookupData = await query.PageBy(input.SkipCount, input.MaxResultCount).ToDynamicListAsync<Volo.Abp.Identity.IdentityUser>();
+            var totalCount = query.Count();
+            return new PagedResultDto<LookupDto<Guid>>
+            {
+                TotalCount = totalCount,
+                Items = ObjectMapper.Map<List<Volo.Abp.Identity.IdentityUser>, List<LookupDto<Guid>>>(lookupData)
+            };
         }
 
         [Authorize(ExampleAbpApplicationLayerPermissions.Orders.Delete)]
@@ -64,7 +90,7 @@ namespace ExampleAbpApplicationLayer.Orders
         {
 
             var order = await _orderManager.CreateAsync(
-            input.OrderDate, input.TotalAmount, input.Status
+            input.IdentityUserId, input.OrderDate, input.TotalAmount, input.Status
             );
 
             return ObjectMapper.Map<Order, OrderDto>(order);
@@ -76,7 +102,7 @@ namespace ExampleAbpApplicationLayer.Orders
 
             var order = await _orderManager.UpdateAsync(
             id,
-            input.OrderDate, input.TotalAmount, input.Status, input.ConcurrencyStamp
+            input.IdentityUserId, input.OrderDate, input.TotalAmount, input.Status, input.ConcurrencyStamp
             );
 
             return ObjectMapper.Map<Order, OrderDto>(order);
@@ -91,10 +117,19 @@ namespace ExampleAbpApplicationLayer.Orders
                 throw new AbpAuthorizationException("Invalid download token: " + input.DownloadToken);
             }
 
-            var items = await _orderRepository.GetListAsync(input.FilterText, input.OrderDateMin, input.OrderDateMax, input.TotalAmountMin, input.TotalAmountMax, input.Status);
+            var orders = await _orderRepository.GetListWithNavigationPropertiesAsync(input.FilterText, input.OrderDateMin, input.OrderDateMax, input.TotalAmountMin, input.TotalAmountMax, input.Status, input.IdentityUserId);
+            var items = orders.Select(item => new
+            {
+                OrderDate = item.Order.OrderDate,
+                TotalAmount = item.Order.TotalAmount,
+                Status = item.Order.Status,
+
+                IdentityUser = item.IdentityUser?.UserName,
+
+            });
 
             var memoryStream = new MemoryStream();
-            await memoryStream.SaveAsAsync(ObjectMapper.Map<List<Order>, List<OrderExcelDto>>(items));
+            await memoryStream.SaveAsAsync(items);
             memoryStream.Seek(0, SeekOrigin.Begin);
 
             return new RemoteStreamContent(memoryStream, "Orders.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");

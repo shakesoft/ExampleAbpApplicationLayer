@@ -21,14 +21,14 @@ namespace ExampleAbpApplicationLayer.Orders
         }
 
         public virtual async Task<Order> CreateAsync(
-        DateTime orderDate, float totalAmount, OrderStatus status)
+        Guid? identityUserId, DateTime orderDate, float totalAmount, OrderStatus status)
         {
             Check.NotNull(orderDate, nameof(orderDate));
             Check.NotNull(status, nameof(status));
 
             var order = new Order(
              GuidGenerator.Create(),
-             orderDate, totalAmount, status
+             identityUserId, orderDate, totalAmount, status
              );
 
             return await _orderRepository.InsertAsync(order);
@@ -36,7 +36,7 @@ namespace ExampleAbpApplicationLayer.Orders
 
         public virtual async Task<Order> UpdateAsync(
             Guid id,
-            DateTime orderDate, float totalAmount, OrderStatus status, [CanBeNull] string? concurrencyStamp = null
+            Guid? identityUserId, DateTime orderDate, float totalAmount, OrderStatus status, [CanBeNull] string? concurrencyStamp = null
         )
         {
             Check.NotNull(orderDate, nameof(orderDate));
@@ -44,6 +44,7 @@ namespace ExampleAbpApplicationLayer.Orders
 
             var order = await _orderRepository.GetAsync(id);
 
+            order.IdentityUserId = identityUserId;
             order.OrderDate = orderDate;
             order.TotalAmount = totalAmount;
             order.Status = status;

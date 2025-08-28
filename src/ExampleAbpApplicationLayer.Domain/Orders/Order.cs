@@ -1,4 +1,5 @@
 using ExampleAbpApplicationLayer.Enums.Orders;
+using Volo.Abp.Identity;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace ExampleAbpApplicationLayer.Orders
         public virtual float TotalAmount { get; set; }
 
         public virtual OrderStatus Status { get; set; }
-
+        public Guid? IdentityUserId { get; set; }
         public ICollection<OrderItem> OrderItems { get; private set; }
 
         protected OrderBase()
@@ -31,13 +32,14 @@ namespace ExampleAbpApplicationLayer.Orders
 
         }
 
-        public OrderBase(Guid id, DateTime orderDate, float totalAmount, OrderStatus status)
+        public OrderBase(Guid id, Guid? identityUserId, DateTime orderDate, float totalAmount, OrderStatus status)
         {
 
             Id = id;
             OrderDate = orderDate;
             TotalAmount = totalAmount;
             Status = status;
+            IdentityUserId = identityUserId;
             OrderItems = new Collection<OrderItem>();
         }
 

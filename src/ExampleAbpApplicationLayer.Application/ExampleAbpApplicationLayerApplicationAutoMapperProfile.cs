@@ -1,3 +1,4 @@
+using Volo.Abp.Identity;
 using ExampleAbpApplicationLayer.OrderItems;
 using ExampleAbpApplicationLayer.Orders;
 using System;
@@ -25,5 +26,9 @@ public class ExampleAbpApplicationLayerApplicationAutoMapperProfile : Profile
         CreateMap<OrderItem, OrderItemDto>();
         CreateMap<OrderItemWithNavigationProperties, OrderItemWithNavigationPropertiesDto>();
         CreateMap<Product, LookupDto<Guid>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<Order, OrderDto>().Ignore(x => x.OrderItems);
+        CreateMap<OrderWithNavigationProperties, OrderWithNavigationPropertiesDto>();
+        CreateMap<IdentityUser, LookupDto<Guid>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.UserName));
     }
 }

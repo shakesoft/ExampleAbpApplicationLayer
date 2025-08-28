@@ -1,3 +1,4 @@
+using ExampleAbpApplicationLayer.Shared;
 using Asp.Versioning;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,16 @@ namespace ExampleAbpApplicationLayer.Controllers.Orders
         }
 
         [HttpGet]
-        public virtual Task<PagedResultDto<OrderDto>> GetListAsync(GetOrdersInput input)
+        public virtual Task<PagedResultDto<OrderWithNavigationPropertiesDto>> GetListAsync(GetOrdersInput input)
         {
             return _ordersAppService.GetListAsync(input);
+        }
+
+        [HttpGet]
+        [Route("with-navigation-properties/{id}")]
+        public virtual Task<OrderWithNavigationPropertiesDto> GetWithNavigationPropertiesAsync(Guid id)
+        {
+            return _ordersAppService.GetWithNavigationPropertiesAsync(id);
         }
 
         [HttpGet]
@@ -37,6 +45,13 @@ namespace ExampleAbpApplicationLayer.Controllers.Orders
         public virtual Task<OrderDto> GetAsync(Guid id)
         {
             return _ordersAppService.GetAsync(id);
+        }
+
+        [HttpGet]
+        [Route("identity-user-lookup")]
+        public virtual Task<PagedResultDto<LookupDto<Guid>>> GetIdentityUserLookupAsync(LookupRequestDto input)
+        {
+            return _ordersAppService.GetIdentityUserLookupAsync(input);
         }
 
         [HttpPost]

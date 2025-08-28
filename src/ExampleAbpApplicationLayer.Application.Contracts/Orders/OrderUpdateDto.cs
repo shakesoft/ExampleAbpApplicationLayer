@@ -11,6 +11,7 @@ namespace ExampleAbpApplicationLayer.Orders
         public DateTime OrderDate { get; set; }
         public float TotalAmount { get; set; }
         public OrderStatus Status { get; set; }
+        public Guid? IdentityUserId { get; set; }
 
         public string ConcurrencyStamp { get; set; } = null!;
     }

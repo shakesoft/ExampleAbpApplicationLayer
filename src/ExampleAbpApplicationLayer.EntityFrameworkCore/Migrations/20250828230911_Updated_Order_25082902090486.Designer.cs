@@ -4,6 +4,7 @@ using ExampleAbpApplicationLayer.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace ExampleAbpApplicationLayer.Migrations
 {
     [DbContext(typeof(ExampleAbpApplicationLayerDbContext))]
-    partial class ExampleAbpApplicationLayerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250828230911_Updated_Order_25082902090486")]
+    partial class Updated_Order_25082902090486
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

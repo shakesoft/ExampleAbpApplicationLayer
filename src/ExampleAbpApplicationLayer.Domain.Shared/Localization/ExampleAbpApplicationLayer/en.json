@@ -113,6 +113,7 @@
     "MaxQty": "Max Qty",
     "MaxTotalPrice": "Max Total Price",
     "MaxProductName": "Max Product Name",
-    "Permission:OrderItems": "Order Items"
+    "Permission:OrderItems": "Order Items",
+    "IdentityUser": "Identity user"
   }
 }

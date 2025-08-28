@@ -10,5 +10,6 @@ namespace ExampleAbpApplicationLayer.Orders
         public DateTime OrderDate { get; set; }
         public float TotalAmount { get; set; } = 0f;
         public OrderStatus Status { get; set; } = ((OrderStatus[])Enum.GetValues(typeof(OrderStatus)))[0];
+        public Guid? IdentityUserId { get; set; }
     }
 }

@@ -121,7 +121,26 @@
       "OrdinalIndex": 0
     }
   ],
-  "NavigationProperties": [],
+  "NavigationProperties": [
+    {
+      "EntityNameWithDuplicationNumber": "IdentityUser",
+      "EntitySetNameWithDuplicationNumber": "IdentityUsers",
+      "ReferencePropertyName": "IdentityUser",
+      "UiPickType": "Dropdown",
+      "IsRequired": false,
+      "IncludeEntitiesFromModules": true,
+      "FromAbpModule": true,
+      "Name": "IdentityUserId",
+      "DisplayProperty": "UserName",
+      "Namespace": "Volo.Abp.Identity",
+      "EntityName": "IdentityUser",
+      "EntitySetName": "IdentityUsers",
+      "DtoNamespace": "Volo.Abp.Identity",
+      "DtoEntityName": "IdentityUserDto",
+      "Type": "Guid",
+      "IsFilterable": true
+    }
+  ],
   "NavigationConnections": [],
   "ChildEntities": [
     {

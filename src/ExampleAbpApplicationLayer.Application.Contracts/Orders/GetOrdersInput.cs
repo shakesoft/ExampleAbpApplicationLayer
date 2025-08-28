@@ -13,6 +13,7 @@ namespace ExampleAbpApplicationLayer.Orders
         public float? TotalAmountMin { get; set; }
         public float? TotalAmountMax { get; set; }
         public OrderStatus? Status { get; set; }
+        public Guid? IdentityUserId { get; set; }
 
         public GetOrdersInputBase()
         {

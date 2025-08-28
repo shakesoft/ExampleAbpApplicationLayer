@@ -1,3 +1,4 @@
+using ExampleAbpApplicationLayer.Shared;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,9 +12,13 @@ namespace ExampleAbpApplicationLayer.Orders
     public partial interface IOrdersAppService : IApplicationService
     {
 
-        Task<PagedResultDto<OrderDto>> GetListAsync(GetOrdersInput input);
+        Task<PagedResultDto<OrderWithNavigationPropertiesDto>> GetListAsync(GetOrdersInput input);
+
+        Task<OrderWithNavigationPropertiesDto> GetWithNavigationPropertiesAsync(Guid id);
 
         Task<OrderDto> GetAsync(Guid id);
+
+        Task<PagedResultDto<LookupDto<Guid>>> GetIdentityUserLookupAsync(LookupRequestDto input);
 
         Task DeleteAsync(Guid id);
 

@@ -105,16 +105,6 @@ public class ExampleAbpApplicationLayerDbContext :
         //    //...
         //});
 
-        builder.Entity<Order>(b =>
-                {
-                    b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "Orders", ExampleAbpApplicationLayerConsts.DbSchema);
-                    b.ConfigureByConvention();
-                    b.Property(x => x.TenantId).HasColumnName(nameof(Order.TenantId));
-                    b.Property(x => x.OrderDate).HasColumnName(nameof(Order.OrderDate));
-                    b.Property(x => x.TotalAmount).HasColumnName(nameof(Order.TotalAmount));
-                    b.Property(x => x.Status).HasColumnName(nameof(Order.Status));
-                    b.HasMany(x => x.OrderItems).WithOne().HasForeignKey(x => x.OrderId).IsRequired().OnDelete(DeleteBehavior.Cascade);
-                });
         builder.Entity<OrderItem>(b =>
                 {
                     b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "OrderItems", ExampleAbpApplicationLayerConsts.DbSchema);
@@ -136,6 +126,17 @@ public class ExampleAbpApplicationLayerDbContext :
                     b.Property(x => x.Desc).HasColumnName(nameof(Product.Desc));
                     b.Property(x => x.Price).HasColumnName(nameof(Product.Price));
                     b.Property(x => x.IsActive).HasColumnName(nameof(Product.IsActive));
+                });
+        builder.Entity<Order>(b =>
+                {
+                    b.ToTable(ExampleAbpApplicationLayerConsts.DbTablePrefix + "Orders", ExampleAbpApplicationLayerConsts.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(Order.TenantId));
+                    b.Property(x => x.OrderDate).HasColumnName(nameof(Order.OrderDate));
+                    b.Property(x => x.TotalAmount).HasColumnName(nameof(Order.TotalAmount));
+                    b.Property(x => x.Status).HasColumnName(nameof(Order.Status));
+                    b.HasOne<IdentityUser>().WithMany().HasForeignKey(x => x.IdentityUserId).OnDelete(DeleteBehavior.SetNull);
+                    b.HasMany(x => x.OrderItems).WithOne().HasForeignKey(x => x.OrderId).IsRequired().OnDelete(DeleteBehavior.Cascade);
                 });
     }
 }
