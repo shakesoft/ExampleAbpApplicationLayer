@@ -1,0 +1,51 @@
+{
+	"packages":[
+		{
+			"name": "@volo/abp.ng.audit-logging",
+			"appRoutingModuleConfiguration":{
+				"routes":[
+					"{ path: 'audit-logs', loadChildren: () => import('@volo/abp.ng.audit-logging').then(c => c.createRoutes()), }"
+				]
+			},
+			"appModuleConfiguration":{
+				"imports":[
+					{
+						"names":[
+							"provideAuditLoggingConfig"
+						],
+						"namespace": "@volo/abp.ng.audit-logging/config"
+					}
+				],
+				"providerNames":[
+					"provideAuditLoggingConfig()"
+				]
+			},
+			"tsJsonPathRecordConfigurations":[
+				{
+					"name": "@volo/abp.ng.audit-logging",
+					"paths": [
+						"angular/projects/audit-logging/src/public-api.ts"
+					]
+				},
+				{
+					"name": "@volo/abp.ng.audit-logging/config",
+					"paths": [
+						"angular/projects/audit-logging/config/src/public-api.ts"
+					]
+				},
+				{
+					"name": "@volo/abp.ng.audit-logging/proxy",
+					"paths": [
+						"angular/projects/audit-logging/proxy/src/public-api.ts"
+					]
+				},
+				{
+					"name": "@volo/abp.ng.audit-logging/common",
+					"paths": [
+						"angular/projects/audit-logging/common/src/public-api.ts"
+					]
+				}
+			]
+		}
+	]
+}

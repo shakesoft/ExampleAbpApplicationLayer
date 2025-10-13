@@ -1,0 +1,32 @@
+{
+  "name": "@volo/abp.ng.audit-logging",
+  "version": "9.3.5",
+  "homepage": "https://abp.io",
+  "dependencies": {
+    "@abp/ng.components": "~9.3.5",
+    "@abp/ng.theme.shared": "~9.3.5",
+    "@volo/abp.commercial.ng.ui": "^9.3.5",
+    "tslib": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/volosoft/volo.git"
+  },
+  "license": "LGPL-3.0",
+  "keywords": [
+    "aspnetcore",
+    "boilerplate",
+    "framework",
+    "web",
+    "best-practices",
+    "angular",
+    "maui",
+    "blazor",
+    "mvc",
+    "csharp",
+    "webapp"
+  ]
+}

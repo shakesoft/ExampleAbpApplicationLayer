@@ -305,6 +305,45 @@
           }
         }
       }
+    },
+    "audit-logging": {
+      "projectType": "library",
+      "root": "projects/audit-logging",
+      "sourceRoot": "projects/audit-logging/src",
+      "prefix": "abp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/audit-logging/tsconfig.lib.json",
+            "project": "projects/audit-logging/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/audit-logging/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "coverage": true,
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/audit-logging/tsconfig.lib.json",
+              "projects/audit-logging/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   }
 }

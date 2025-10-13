@@ -1,0 +1,41 @@
+@if (getEntityChangeTimeParams(); as timeParameters) {
+  <table class="table" style="width: 100%; table-layout: fixed">
+    <thead>
+      <tr>
+        <th>{{ 'AbpAuditLogging::PropertyName' | abpLocalization }}</th>
+        <th>{{ 'AbpAuditLogging::OriginalValue' | abpLocalization }}</th>
+        <th>{{ 'AbpAuditLogging::NewValue' | abpLocalization }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (entityChange.propertyChanges.length) {
+        <tr class="table-active">
+          <td colspan="3">
+            <span class="text-muted" [ngbTooltip]="entityChange.changeTime | shortDateTime">
+              @if (this.userName) {
+                {{ 'AbpAuditLogging::DaysAgoWithUserTitle' | abpLocalization: timeParameters }}
+              } @else {
+                {{ 'AbpAuditLogging::DaysAgoTitle' | abpLocalization: timeParameters }}
+              }
+            </span>
+          </td>
+        </tr>
+        @for (prop of entityChange.propertyChanges; track prop.id) {
+          <tr>
+            <td>{{ prop.propertyName }}</td>
+            <td>
+              <pre lang="json">{{ prop.originalValue }}</pre>
+            </td>
+            <td>
+              <pre lang="json" [style.color]="getPropColor(prop)">{{ prop.newValue }}</pre>
+            </td>
+          </tr>
+        }
+      } @else {
+        <tr>
+          <td colspan="3">{{ 'AbpUi::NoDataAvailableInDatatable' | abpLocalization }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

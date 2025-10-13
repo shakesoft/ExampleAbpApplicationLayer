@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+  
+
+  <PropertyGroup><LangVersion>latest</LangVersion>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Application" VersionOverride="9.3.5" />
+    <ProjectReference Include="..\Volo.Abp.AuditLogging.Application.Contracts\Volo.Abp.AuditLogging.Application.Contracts.csproj" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" VersionOverride="9.3.5" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" VersionOverride="9.3.5" />
+    <PackageReference Include="Volo.Abp.AutoMapper" VersionOverride="9.3.5" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Abstractions" VersionOverride="9.3.5" />
+    <PackageReference Include="Volo.Abp.Emailing" VersionOverride="9.3.5" />
+    <PackageReference Include="Volo.Abp.BlobStoring" VersionOverride="9.3.5" />
+    <PackageReference Include="Volo.Abp.Commercial.Core" VersionOverride="9.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MiniExcel" />
+  </ItemGroup>
+
+</Project>

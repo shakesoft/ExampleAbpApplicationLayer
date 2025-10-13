@@ -5,6 +5,26 @@ VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpSolution1.Domain", "src\AbpSolution1.Domain\AbpSolution1.Domain.csproj", "{554AD327-6DBA-4F8F-96F8-81CE7A0C863F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.Application.Tests", "modules\Volo.AuditLogging.Ui\test\Volo.Abp.AuditLogging.Application.Tests\Volo.Abp.AuditLogging.Application.Tests.csproj", "{e1e00a9b-cec0-449d-b5dc-08fe65cc32aa}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.Pro.Installer", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.Pro.Installer\Volo.Abp.AuditLogging.Pro.Installer.csproj", "{73b4763f-f470-4e97-9af7-ecb392a7ddcb}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.HttpApi.Client", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.HttpApi.Client\Volo.Abp.AuditLogging.HttpApi.Client.csproj", "{13e70e4b-b8cd-41e7-b037-25b9e433cfb6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.HttpApi", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.HttpApi\Volo.Abp.AuditLogging.HttpApi.csproj", "{35ab9964-e8f1-4e58-a062-06f54247df27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.Blazor.WebAssembly.Bundling", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.Blazor.WebAssembly.Bundling\Volo.Abp.AuditLogging.Blazor.WebAssembly.Bundling.csproj", "{5dc65943-17a5-4fbe-aac2-409721b71187}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.Blazor.MauiBlazor.Bundling", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.Blazor.MauiBlazor.Bundling\Volo.Abp.AuditLogging.Blazor.MauiBlazor.Bundling.csproj", "{357184c0-b171-4f97-ac01-8b4f05f3b8ad}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.Application.Contracts", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.Application.Contracts\Volo.Abp.AuditLogging.Application.Contracts.csproj", "{0a576554-61ca-4dd9-a3b5-186e606326e2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AuditLogging.Application", "modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.Application\Volo.Abp.AuditLogging.Application.csproj", "{320b79ff-6772-4ae2-a2cd-1f0ea565c1cb}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Volo.AuditLogging.Ui.Tests", "Volo.AuditLogging.Ui.Tests", "{6993f8dc-9b8c-4240-9238-20a5e71cfe54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Volo.AuditLogging.Ui", "Volo.AuditLogging.Ui", "{9b82a892-4f11-445a-9dc6-10a52728acf4}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Pro.Application.Tests", "modules\Volo.Account.Pro\test\Volo.Abp.Account.Pro.Application.Tests\Volo.Abp.Account.Pro.Application.Tests.csproj", "{e143d9fb-9677-45eb-8217-ba137d96d0ba}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Pro.Shared.Application.Contracts", "modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Shared.Application.Contracts\Volo.Abp.Account.Pro.Shared.Application.Contracts.csproj", "{79fbd4cc-f8eb-4b21-9e25-0eed655a5911}"
@@ -99,6 +119,38 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{e1e00a9b-cec0-449d-b5dc-08fe65cc32aa}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e1e00a9b-cec0-449d-b5dc-08fe65cc32aa}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e1e00a9b-cec0-449d-b5dc-08fe65cc32aa}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{e1e00a9b-cec0-449d-b5dc-08fe65cc32aa}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73b4763f-f470-4e97-9af7-ecb392a7ddcb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73b4763f-f470-4e97-9af7-ecb392a7ddcb}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73b4763f-f470-4e97-9af7-ecb392a7ddcb}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73b4763f-f470-4e97-9af7-ecb392a7ddcb}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13e70e4b-b8cd-41e7-b037-25b9e433cfb6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13e70e4b-b8cd-41e7-b037-25b9e433cfb6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13e70e4b-b8cd-41e7-b037-25b9e433cfb6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13e70e4b-b8cd-41e7-b037-25b9e433cfb6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35ab9964-e8f1-4e58-a062-06f54247df27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35ab9964-e8f1-4e58-a062-06f54247df27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35ab9964-e8f1-4e58-a062-06f54247df27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35ab9964-e8f1-4e58-a062-06f54247df27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5dc65943-17a5-4fbe-aac2-409721b71187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5dc65943-17a5-4fbe-aac2-409721b71187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5dc65943-17a5-4fbe-aac2-409721b71187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5dc65943-17a5-4fbe-aac2-409721b71187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{357184c0-b171-4f97-ac01-8b4f05f3b8ad}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357184c0-b171-4f97-ac01-8b4f05f3b8ad}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357184c0-b171-4f97-ac01-8b4f05f3b8ad}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357184c0-b171-4f97-ac01-8b4f05f3b8ad}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0a576554-61ca-4dd9-a3b5-186e606326e2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0a576554-61ca-4dd9-a3b5-186e606326e2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0a576554-61ca-4dd9-a3b5-186e606326e2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0a576554-61ca-4dd9-a3b5-186e606326e2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{320b79ff-6772-4ae2-a2cd-1f0ea565c1cb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320b79ff-6772-4ae2-a2cd-1f0ea565c1cb}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320b79ff-6772-4ae2-a2cd-1f0ea565c1cb}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{320b79ff-6772-4ae2-a2cd-1f0ea565c1cb}.Release|Any CPU.Build.0 = Release|Any CPU
 		{e143d9fb-9677-45eb-8217-ba137d96d0ba}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e143d9fb-9677-45eb-8217-ba137d96d0ba}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e143d9fb-9677-45eb-8217-ba137d96d0ba}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -265,6 +317,16 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{e1e00a9b-cec0-449d-b5dc-08fe65cc32aa} = {6993f8dc-9b8c-4240-9238-20a5e71cfe54}
+		{73b4763f-f470-4e97-9af7-ecb392a7ddcb} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{13e70e4b-b8cd-41e7-b037-25b9e433cfb6} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{35ab9964-e8f1-4e58-a062-06f54247df27} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{5dc65943-17a5-4fbe-aac2-409721b71187} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{357184c0-b171-4f97-ac01-8b4f05f3b8ad} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{0a576554-61ca-4dd9-a3b5-186e606326e2} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{320b79ff-6772-4ae2-a2cd-1f0ea565c1cb} = {9b82a892-4f11-445a-9dc6-10a52728acf4}
+		{6993f8dc-9b8c-4240-9238-20a5e71cfe54} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
+		{9b82a892-4f11-445a-9dc6-10a52728acf4} = {b89911da-9372-4b16-a456-dffdb361f26e}
 		{e143d9fb-9677-45eb-8217-ba137d96d0ba} = {d0f739e3-2a2f-4268-ad66-bb8bdfc5b167}
 		{79fbd4cc-f8eb-4b21-9e25-0eed655a5911} = {5441e976-d177-4a1c-998f-5d44e9358019}
 		{0b39fb3e-3979-4394-a202-ba293f260281} = {5441e976-d177-4a1c-998f-5d44e9358019}

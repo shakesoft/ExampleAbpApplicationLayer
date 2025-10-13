@@ -54,6 +54,18 @@
       ],
       "@volo/abp.ng.account/public/proxy": [
         "projects/account/public/proxy/src/public-api.ts"
+      ],
+      "@volo/abp.ng.audit-logging": [
+        "projects/audit-logging/src/public-api.ts"
+      ],
+      "@volo/abp.ng.audit-logging/common": [
+        "projects/audit-logging/common/src/public-api.ts"
+      ],
+      "@volo/abp.ng.audit-logging/config": [
+        "projects/audit-logging/config/src/public-api.ts"
+      ],
+      "@volo/abp.ng.audit-logging/proxy": [
+        "projects/audit-logging/proxy/src/public-api.ts"
       ]
     },
     "useDefineForClassFields": false
