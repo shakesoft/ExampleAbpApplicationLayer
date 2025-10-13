@@ -344,6 +344,45 @@
           }
         }
       }
+    },
+    "chat": {
+      "projectType": "library",
+      "root": "projects/chat",
+      "sourceRoot": "projects/chat/src",
+      "prefix": "abp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/chat/tsconfig.lib.json",
+            "project": "projects/chat/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/chat/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "coverage": true,
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/chat/tsconfig.lib.json",
+              "projects/chat/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   }
 }

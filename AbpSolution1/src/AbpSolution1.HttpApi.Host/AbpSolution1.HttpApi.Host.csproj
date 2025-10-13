@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Chat.SignalR" Version="9.3.5" />
+    <ProjectReference Include="..\..\modules\Volo.Chat\src\Volo.Chat.SignalR\Volo.Chat.SignalR.csproj" />
   </ItemGroup>
 
   <ItemGroup>

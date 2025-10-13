@@ -21,7 +21,7 @@
     <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Public.Application\Volo.Abp.Account.Pro.Public.Application.csproj" />
     <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Admin.Application\Volo.Abp.Account.Pro.Admin.Application.csproj" />
     <PackageReference Include="Volo.Abp.Identity.Pro.Application" Version="9.3.5" />
-    <PackageReference Include="Volo.Chat.Application" Version="9.3.5" />
+    <ProjectReference Include="..\..\modules\Volo.Chat\src\Volo.Chat.Application\Volo.Chat.Application.csproj" />
     <PackageReference Include="Volo.Saas.Host.Application" Version="9.3.5" />
     <ProjectReference Include="..\..\modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.Application\Volo.Abp.AuditLogging.Application.csproj" />
     <PackageReference Include="Volo.Abp.OpenIddict.Pro.Application" Version="9.3.5" />

@@ -66,6 +66,15 @@
       ],
       "@volo/abp.ng.audit-logging/proxy": [
         "projects/audit-logging/proxy/src/public-api.ts"
+      ],
+      "@volo/abp.ng.chat": [
+        "projects/chat/src/public-api.ts"
+      ],
+      "@volo/abp.ng.chat/config": [
+        "projects/chat/config/src/public-api.ts"
+      ],
+      "@volo/abp.ng.chat/proxy": [
+        "projects/chat/proxy/src/public-api.ts"
       ]
     },
     "useDefineForClassFields": false

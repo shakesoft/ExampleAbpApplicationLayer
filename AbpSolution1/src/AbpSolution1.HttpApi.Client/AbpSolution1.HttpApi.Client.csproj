@@ -23,7 +23,7 @@
     <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Admin.HttpApi.Client\Volo.Abp.Account.Pro.Admin.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Public.HttpApi.Client\Volo.Abp.Account.Pro.Public.HttpApi.Client.csproj" />
     <PackageReference Include="Volo.Saas.Host.HttpApi.Client" Version="9.3.5" />
-    <PackageReference Include="Volo.Chat.HttpApi.Client" Version="9.3.5" />
+    <ProjectReference Include="..\..\modules\Volo.Chat\src\Volo.Chat.HttpApi.Client\Volo.Chat.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\Volo.AuditLogging.Ui\src\Volo.Abp.AuditLogging.HttpApi.Client\Volo.Abp.AuditLogging.HttpApi.Client.csproj" />
     <PackageReference Include="Volo.Abp.OpenIddict.Pro.HttpApi.Client" Version="9.3.5" />
     <PackageReference Include="Volo.Abp.LanguageManagement.HttpApi.Client" Version="9.3.5" />
