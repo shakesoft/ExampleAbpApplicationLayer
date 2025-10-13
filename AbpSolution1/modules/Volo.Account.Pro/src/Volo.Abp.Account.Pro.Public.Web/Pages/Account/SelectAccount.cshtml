@@ -1,0 +1,40 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@model Volo.Abp.Account.Public.Web.Pages.Account.SelectAccountModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<AccountResource> L
+@{
+    PageLayout.Content.Title = L["SelectAccount"].Value;
+}
+
+@section styles {
+    <abp-style src="/Pages/Account/SelectAccount.css" />
+}
+
+<form method="post">
+    <div class="text-center">
+        <div class="container p-0" style="max-width: 400px;">
+            <div class="card">
+                <div class="card-body ps-0 pe-0">
+                    <div class="d-flex align-items-center justify-content-between ps-2 pe-2">
+                        <div class="d-flex align-items-center flex-grow-1 me-3">
+                            <img src="@Model.UserInfo.Avatar" class="rounded-circle me-3" style="width: 50px; height: 50px; flex-shrink: 0;" />
+                            <div class="text-start overflow-hidden">
+                                <div>@L["SignedInAs"].Value</div>
+                                <strong class="text-username d-block">@Model.UserInfo.UserName</strong>
+                                <small class="text-username text-muted d-block">@Model.UserInfo.Email</small>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success" name="action" value="continue" style="white-space: nowrap;">@L["Continue"]</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-outline-secondary" name="action" value="login">@L["SwitchToAnotherAccount"]</button>
+                <button type="submit" class="btn btn-outline-secondary" name="action" value="register">@L["CreateANewAccount"]</button>
+            </div>
+        </div>
+    </div>
+</form>

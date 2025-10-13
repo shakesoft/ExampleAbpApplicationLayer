@@ -1,0 +1,31 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.Timing
+@using Volo.Abp.Account.Public.Web.Pages.Account
+@model LockedOut
+@inject IHtmlLocalizer<AccountResource> L
+@inject Volo.Abp.AspNetCore.Mvc.UI.Layout.IPageLayout PageLayout
+@inject IClock Clock
+@{
+    PageLayout.Content.Title = L["UserLockedOut"].Value;
+}
+<div class="account-module-form">
+        <p>@L["UserLockedOutMessage"]</p>
+
+        <h3 class="lpx-main-title lpx-login-title  m-0 me-auto">@L["UserLockedOut:WhatDoYouNeedToDo"]</h3>
+
+        <p class="mt-2">@L["YourAccountWillBeUnlockedOn"]</p>
+        @{
+            var userLockoutEnd = Clock.SupportsMultipleTimezone
+                ? Clock.ConvertToUserTime(Model.UserInfo.LockoutEnd!.Value)
+                : Model.UserInfo.LockoutEnd!.Value.ToLocalTime();
+        }
+        <p><b>@userLockoutEnd.DateTime</b></p>
+
+        <p>@L["TryAgainAfterThisTimeOrContactAdministrator"]</p>
+
+        <div class="mt-4">
+        <a abp-button="Primary" asp-page="./Login" asp-all-route-data="@(new Dictionary<string, string> {{"returnUrl", Model.ReturnUrl}, {"returnUrlHash", Model.ReturnUrlHash}})">&larr; @L["BackToLogin"]</a>
+    </div>
+</div>

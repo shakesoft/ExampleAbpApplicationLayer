@@ -1,0 +1,61 @@
+<div id="AccountSettingsForm" class="row">
+  <div class="col-md-12">
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <li ngbNavItem>
+        <a ngbNavLink>{{ 'AbpAccount::AccountSettingsGeneral' | abpLocalization }}</a>
+        <ng-template ngbNavContent>
+          <div class="abp-md-form">
+            <abp-account-settings-general [isTenant]="isTenant" />
+          </div>
+        </ng-template>
+      </li>
+      @if (isTwoFactorSettingsEnabled) {
+        <li ngbNavItem>
+          <a ngbNavLink>{{ 'AbpAccount::AccountSettingsTwoFactor' | abpLocalization }}</a>
+          <ng-template ngbNavContent>
+            <div class="abp-md-form">
+              <abp-account-settings-two-factor [isTenant]="isTenant" />
+            </div>
+          </ng-template>
+        </li>
+      }
+      @if (isCaptchaEnabled$ | async) {
+        <li ngbNavItem>
+          <a ngbNavLink>
+            {{ 'AbpAccount::Captcha' | abpLocalization }}
+          </a>
+          <ng-template ngbNavContent>
+            <div class="abp-md-form">
+              <abp-account-settings-captcha [isTenant]="isTenant" />
+            </div>
+          </ng-template>
+        </li>
+      }
+      @if (isExternalProviderEnabled$ | async) {
+        @if (isExternalProviderExists$ | async) {
+          <li ngbNavItem>
+            <a ngbNavLink>
+              {{ 'AbpAccount::AccountExternalProviderSettings' | abpLocalization }}
+            </a>
+            <ng-template ngbNavContent>
+              <div class="abp-md-form">
+                <abp-account-settings-external-provider [isTenant]="isTenant" />
+              </div>
+            </ng-template>
+          </li>
+        }
+      }
+      <li ngbNavItem>
+        <a ngbNavLink>
+          {{ 'AbpAccount::IdleSessionTimeout' | abpLocalization }}
+        </a>
+        <ng-template ngbNavContent>
+          <div class="abp-md-form">
+            <abp-account-settings-idle-session />
+          </div>
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+</div>

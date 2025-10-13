@@ -1,0 +1,110 @@
+{
+	"packages":[
+		{
+			"name": "@volo/abp.ng.account",
+			"appModuleConfiguration":{
+				"imports":[
+					{
+						"names":[
+							"provideAccountAdminConfig"
+						],
+						"namespace": "@volo/abp.ng.account/admin/config"
+					},
+					{
+						"names":[
+							"provideAccountPublicConfig"
+						],
+						"namespace": "@volo/abp.ng.account/public/config"
+					}
+				],
+				"providerNames":[
+					"provideAccountAdminConfig()",
+					"provideAccountPublicConfig()"
+				]
+			},
+			"tsJsonPathRecordConfigurations":[
+				{
+					"name": "@volo/abp.ng.account",
+					"paths": [
+						"angular/projects/account/src/public-api.ts"
+					]
+				},
+				{
+					"name": "@volo/abp.ng.account/admin",
+					"paths": [
+						"angular/projects/account/admin/src/public-api.ts"
+					]
+				},
+
+				{
+					"name": "@volo/abp.ng.account/public",
+					"paths": [
+						"angular/projects/account/public/src/public-api.ts"
+					]
+				},
+				{
+					"name": "@volo/abp.ng.account/admin/config",
+					"paths": [
+						"angular/projects/account/admin/config/src/public-api.ts"
+					]
+				},
+
+				{
+					"name": "@volo/abp.ng.account/public/config",
+					"paths": [
+						"angular/projects/account/public/config/src/public-api.ts"
+					]
+				},
+				{
+					"name": "@volo/abp.ng.account/public/proxy",
+					"paths": [
+						"angular/projects/account/public/proxy/src/public-api.ts"
+					]
+				},
+				{
+					"name": "cropperjs/*",
+					"paths": [
+						"node_modules/cropperjs/*"
+					]
+				},
+				{
+					"name": "cangularx-qrcode",
+					"paths": [
+						"node_modules/angularx-qrcode"
+					]
+				},
+				{
+					"name": "qrcode",
+					"paths": [
+						"node_modules/qrcode"
+					]
+				}
+			],
+			"replacementPackages":[
+				{
+					"name": "angularx-qrcode",
+					"version": "20.0.0"
+				},
+				{
+					"name": "cropperjs",
+					"version": "1.0.0"
+				},
+				{
+					"name": "qrcode",
+					"version": "1.5.4"
+				}
+			]
+		},
+		{
+			"name": "@volo/abp.ng.account.core",
+			"tsJsonPathRecordConfigurations":[
+				{
+					"name": "@volo/abp.ng.account.core",
+					"paths": [
+						"angular/projects/account.core/src/public-api.ts"
+					]
+				}
+			]
+		}
+	]
+}

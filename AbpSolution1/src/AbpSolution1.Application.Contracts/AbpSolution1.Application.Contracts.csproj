@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>AbpSolution1</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbpSolution1.Domain.Shared\AbpSolution1.Domain.Shared.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Shared.Application.Contracts\Volo.Abp.Account.Pro.Shared.Application.Contracts.csproj" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.Identity.Pro.Application.Contracts" Version="9.3.5" />
+    <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Public.Application.Contracts\Volo.Abp.Account.Pro.Public.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Admin.Application.Contracts\Volo.Abp.Account.Pro.Admin.Application.Contracts.csproj" />
+    <PackageReference Include="Volo.Chat.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Saas.Host.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.OpenIddict.Pro.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.LanguageManagement.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.FileManagement.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.TextTemplateManagement.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.Gdpr.Application.Contracts" Version="9.3.5" />
+    <PackageReference Include="Volo.CmsKit.Pro.Application.Contracts" Version="9.3.5" />
+  </ItemGroup>
+
+</Project>

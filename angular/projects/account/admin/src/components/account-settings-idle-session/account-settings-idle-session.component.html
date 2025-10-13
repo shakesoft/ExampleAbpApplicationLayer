@@ -1,0 +1,70 @@
+<div (keyup.enter)="submit()">
+  <h4>{{ 'AbpAccount::IdleSessionTimeout' | abpLocalization }}</h4>
+  <p>{{ 'AbpAccount::IdleSessionTimeoutInfo' | abpLocalization }}</p>
+  <a href="https://abp.io/docs/latest/modules/account/idle-session-timeout" target="_blank">
+    {{ 'AbpAccount::LearnMoreAboutIdleSessionTimeout' | abpLocalization }}
+  </a>
+  <div class="mt-3">
+    <div class="form-check mb-2">
+      <input
+        class="form-check-input"
+        name="isIdleSessionEnabled"
+        type="checkbox"
+        id="AccountIdleSessionSettings_IdleSignOutInactiveUserAutomatically"
+        [checked]="isIdleSessionEnabled()"
+        (input)="isIdleSessionEnabled.set($event.target.checked)"
+      />
+      <label
+        class="form-check-label"
+        for="AccountIdleSessionSettings_IdleSignOutInactiveUserAutomatically"
+      >
+        {{ 'AbpAccount::IdleSignOutInactiveUserAutomatically' | abpLocalization }}
+      </label>
+    </div>
+
+    @if (isIdleSessionEnabled()) {
+      <div class="mb-3">
+        <label class="form-label" for="AccountIdleSessionSettings_IdleTimeoutMinutes">
+          {{ 'AbpAccount::IdleTimeoutMinutes' | abpLocalization }}
+        </label>
+
+        <div class="input-group">
+          <div class="col-9">
+            <select
+              name="IdleTimeoutMinutes"
+              class="form-select form-control"
+              (change)="timeoutMinute.set(+$event.target.value)"
+            >
+              @for (option of idleTimeoutMinuteOptions; track $index) {
+                <option
+                  [value]="option.value"
+                  [selected]="option.value === timeoutMinute() || customIdleTimeout()"
+                >
+                  {{ 'AbpAccount::' + option.key | abpLocalization }}
+                </option>
+              }
+            </select>
+          </div>
+          <div class="col-3 ps-1">
+            @if (customIdleTimeout()) {
+              <input
+                type="number"
+                min="1"
+                class="form-control"
+                placeholder="Minutes"
+                [value]="timeoutMinute()"
+                (input)="timeoutMinute.set(+$event.target.value)"
+              />
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <hr class="my-3" />
+  <div>
+    <abp-button (click)="submit()" iconClass="fa fa-save" [loading]="loading">
+      {{ 'AbpAccount::Save' | abpLocalization }}
+    </abp-button>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+﻿{
+  "applications": {
+    "AbpSolution1.Maui": {
+      "type": "dotnet-project",
+      "path": "../../../src/AbpSolution1.Maui/AbpSolution1.Maui.csproj",
+      "execution": {
+        "order": 0,
+        "defaultBatchStartState": "DontStart"
+      }
+    },
+    "AbpSolution1.Web.Public": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44302",
+      "path": "../../../src/AbpSolution1.Web.Public/AbpSolution1.Web.Public.csproj",
+      "kubernetesService": ".*-webpublic$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 1
+      }
+    },
+    "AbpSolution1.AuthServer": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44304",
+      "path": "../../../src/AbpSolution1.AuthServer/AbpSolution1.AuthServer.csproj",
+      "kubernetesService": ".*-authserver$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 3
+      }
+    },
+    "AbpSolution1.HttpApi.Host": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44308",
+      "path": "../../../src/AbpSolution1.HttpApi.Host/AbpSolution1.HttpApi.Host.csproj",
+      "kubernetesService": ".*-httpapihost$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 4
+      }
+    },
+    "AbpSolution1.Angular": {
+      "type": "cli",
+      "workingDirectory": "../../../angular",
+      "startCommand": "./start.ps1",
+      "launchUrl": "http://localhost:4200",
+      "kubernetesService": ".*-angular$",
+      "execution": {
+        "order": 2
+      }    
+    }
+  },
+  "containers": {
+    "serviceName": "AbpSolution1-Containers",
+    "files": {
+      "../../docker/containers/redis.yml": {
+      },
+      "../../docker/containers/rabbitmq.yml": {
+      }
+    }
+  }
+}

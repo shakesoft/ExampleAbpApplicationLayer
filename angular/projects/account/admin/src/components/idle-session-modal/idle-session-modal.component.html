@@ -1,0 +1,21 @@
+<abp-modal [visible]="showModal()" (disappear)="staySignedIn()" [options]="{ animation: false }">
+  <ng-template #abpHeader>
+    <h3>{{ 'AbpAccount::YourSessionIsAboutToExpire' | abpLocalization }}</h3>
+  </ng-template>
+  <ng-template #abpBody>
+    <p>
+      {{ 'AbpAccount::YourSessionIsAboutToExpireInfo' | abpLocalization }}
+    </p>
+  </ng-template>
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" (click)="logout()">
+      {{ 'AbpAccount::IdleSignOutNow' | abpLocalization }}
+      @if (countdown()) {
+        {{ '(' + countdown() + ')' }}
+      }
+    </button>
+    <button type="button" class="btn btn-primary" abpClose (click)="staySignedIn()">
+      {{ 'AbpAccount::IdleStaySignedIn' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>

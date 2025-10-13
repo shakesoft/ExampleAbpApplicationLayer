@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "name": "my-app",
+  "private": true,
+  "dependencies": {
+    "@volo/cms-kit-pro.public": "~9.3.5",
+    "@volo/abp.aspnetcore.mvc.ui.theme.leptonx": "~4.3.5"
+  }
+}

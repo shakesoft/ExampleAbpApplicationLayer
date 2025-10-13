@@ -1,0 +1,22 @@
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+
+@if (IsEnabled)
+{
+    <Modal @ref="ModalRef" RenderMode="ModalRenderMode.LazyReload" Closing="ClosingModal">
+        <ModalContent>
+            <ModalHeader>
+                <ModalTitle>@L["YourSessionIsAboutToExpire"]</ModalTitle>
+                <CloseButton Clicked="CloseModalAsync"/>
+            </ModalHeader>
+            <ModalBody>
+                <p>
+                    @L["YourSessionIsAboutToExpireInfo"]
+                </p>
+            </ModalBody>
+            <ModalFooter>
+                <Button Clicked="@OnSignOutClickedAsync" Color="Color.Secondary">@SignOutText</Button>
+                <Button Clicked="@OnStaySignedInClickedAsync" Color="Color.Primary">@L["IdleStaySignedIn"]</Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
+}

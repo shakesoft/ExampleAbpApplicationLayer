@@ -1,0 +1,30 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Alert
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Blockquote
+@using Volo.Abp.AspNetCore.Mvc.UI.Bundling.TagHelpers
+@model Volo.Abp.Account.Pro.Public.Web.Shared.Pages.Account.Idle.AccountIdleViewModel
+@inject IHtmlLocalizer<AccountResource> L
+
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="AccountIdleModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title">@L["YourSessionIsAboutToExpire"]</h5></div>
+            <div class="modal-body">
+                <p>
+                    @L["YourSessionIsAboutToExpireInfo"]
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button id="AccountIdleSignOutNow" class="btn btn-secondary" type="button">@L["IdleSignOutNow"]</button>
+                <button id="AccountIdleStaySignedIn" class="btn btn-primary" type="button">@L["IdleStaySignedIn"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="AccountIdleTimeoutMinutes" value="@Model.IdleTimeoutMinutes" />
+<input type="hidden" id="AccountIdleLogoutUrl" value="@Model.LogoutUrl" />
+
+<abp-script src="/Pages/Account/Idle/IdleTracker.js"></abp-script>
+<abp-script src="/Pages/Account/Idle/Default.js"></abp-script>

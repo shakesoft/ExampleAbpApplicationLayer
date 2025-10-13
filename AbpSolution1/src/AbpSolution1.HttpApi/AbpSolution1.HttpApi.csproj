@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>AbpSolution1</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbpSolution1.Application.Contracts\AbpSolution1.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.SettingManagement.HttpApi" Version="9.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Identity.Pro.HttpApi" Version="9.3.5" />
+    <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Admin.HttpApi\Volo.Abp.Account.Pro.Admin.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\Volo.Account.Pro\src\Volo.Abp.Account.Pro.Public.HttpApi\Volo.Abp.Account.Pro.Public.HttpApi.csproj" />
+    <PackageReference Include="Volo.Abp.AuditLogging.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.OpenIddict.Pro.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.LanguageManagement.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.FileManagement.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Saas.Host.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Chat.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.TextTemplateManagement.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.Abp.Gdpr.HttpApi" Version="9.3.5" />
+    <PackageReference Include="Volo.CmsKit.Pro.HttpApi" Version="9.3.5" />
+  </ItemGroup>
+
+</Project>

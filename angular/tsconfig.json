@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -12,15 +11,50 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "@angular/*":["node_modules/@angular/*"],
-      "@abp/*":["node_modules/@abp/*"],
-      "@volo/*":["node_modules/@volo/*"],
-      "@volosoft/*":["node_modules/@volosoft/*"],
-      "@swimlane/*": ["node_modules/@swimlane/*"],
-      "@ngx-validate/core":["node_modules/@ngx-validate/core"],
-      "@ng-bootstrap/ng-bootstrap": ["node_modules/@ng-bootstrap/ng-bootstrap"],
+      "@angular/*": [
+        "node_modules/@angular/*"
+      ],
+      "@abp/*": [
+        "node_modules/@abp/*"
+      ],
+      "@volo/*": [
+        "node_modules/@volo/*"
+      ],
+      "@volosoft/*": [
+        "node_modules/@volosoft/*"
+      ],
+      "@swimlane/*": [
+        "node_modules/@swimlane/*"
+      ],
+      "@ngx-validate/core": [
+        "node_modules/@ngx-validate/core"
+      ],
+      "@ng-bootstrap/ng-bootstrap": [
+        "node_modules/@ng-bootstrap/ng-bootstrap"
+      ],
+      "@volo/abp.ng.account": [
+        "projects/account/src/public-api.ts"
+      ],
+      "@volo/abp.ng.account/admin": [
+        "projects/account/admin/src/public-api.ts"
+      ],
+      "@volo/abp.ng.account/public": [
+        "projects/account/public/src/public-api.ts"
+      ],
+      "@volo/abp.ng.account/admin/config": [
+        "projects/account/admin/config/src/public-api.ts"
+      ],
+      "@volo/abp.ng.account/public/config": [
+        "projects/account/public/config/src/public-api.ts"
+      ],
+      "@volo/abp.ng.account/public/proxy": [
+        "projects/account/public/proxy/src/public-api.ts"
+      ]
     },
     "useDefineForClassFields": false
   },

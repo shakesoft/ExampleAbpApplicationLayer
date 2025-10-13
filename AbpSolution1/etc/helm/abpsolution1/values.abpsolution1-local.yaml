@@ -1,0 +1,14 @@
+global:
+  hosts:
+    dbmigrator: "[RELEASE_NAME]-dbmigrator"
+    webpublic: "[RELEASE_NAME]-webpublic"
+    httpapi: "[RELEASE_NAME]-httpapihost"
+    angular: "[RELEASE_NAME]-angular"
+    authserver: "[RELEASE_NAME]-authserver"
+  connectionStrings:
+    default: "Server=[RELEASE_NAME]-sqlserver,1433; Database=AbpSolution1; User Id=sa; Password=myPassw@rd; TrustServerCertificate=True"
+  dotnetEnvironment: "Staging"
+  disablePII: "false"
+  stringEncryptionDefaultPassPhrase: "w27Ugec856m8tsw0"
+  abpStudioClient:
+    isLinkEnabled: "true"

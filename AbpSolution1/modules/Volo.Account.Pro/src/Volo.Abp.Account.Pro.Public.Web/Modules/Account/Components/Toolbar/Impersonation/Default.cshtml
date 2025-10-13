@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@inject IHtmlLocalizer<AccountResource> L
+<form method="post" data-ajaxForm="false" action="~/Account/BackToImpersonator" class="d-flex align-items-center justify-content-center">
+    @Html.AntiForgeryToken()
+    <a href="javascript:void(0)" onclick="this.closest('form').submit();" class="lpx-menu-item-link nav-link b-tooltip b-tooltip-left b-tooltip-inline" data-bs-toggle="tooltip" data-bs-placement="left" title="@L["BackToImpersonator"]" >
+        <span class="lpx-menu-item-icon">
+            <i class="lpx-icon fas fa-undo"></i>
+        </span>
+    </a>
+</form>

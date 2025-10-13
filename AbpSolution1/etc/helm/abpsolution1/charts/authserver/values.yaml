@@ -1,0 +1,4 @@
+image:
+  repository: "abpsolution1/authserver"
+  tag: "latest"
+  pullPolicy: IfNotPresent
